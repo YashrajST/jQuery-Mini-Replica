@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>jQuery Examples</title>
+<script src='jquery/jquery.js'></script>
+<script>
+function $(k)
+{
+alert('just do it '+k);
+}
+function doSomething()
+{
+//$("#button1").css("color","blue");
+jQuery("#button1").css("color","blue");
+}
+jQuery.noConflict();
+
+jQuery(($)=>{
+$("#button2").on('click',function(){
+alert('I am Button2');
+});
+
+$("#button3").on('click',function(){
+$(this).css("color","red");
+});
+
+$("#button4").on('click',function(){
+$(this).css("color","green");
+});
+
+$("#button5").on('click',function(){
+$("#abcd").toggleClass("xyz");
+});
+
+$("#mainContainer").click(function(ev){
+alert("Main Container clicked");
+});
+
+$("#mainContainer").click(function(ev){
+if(ev.target==this)
+{
+alert("Main Container clicked");
+}
+});
+
+$("#mainContainer2").click(function(ev){
+alert("Main Container 2 clicked");
+});
+
+$("#childContainer2").click(function(ev){
+alert("Child Container 2 clicked");
+ev.stopPropagation();
+});
+
+$("#mmm").click(function(ev){
+alert("mmm clicked");
+ev.stopPropagation();
+});
+
+$("#button7").click(function(ev){
+alert("button7 clicked");
+ev.stopPropagation();
+});
+
+$("#button8").click(function(ev){
+alert("Form is being submitted with value "+$("#nm").val());
+if($("#nm").val()==0)
+{
+ev.stopPropagation();
+}
+});
+
+$("#button8").click(function(ev){
+if($(ev.target).is("#d1")) alert('d1 clicked');
+if($(ev.target).is("#d2")) alert('d2 clicked');
+if($(ev.target).is("#s1")) alert('s1 clicked');
+});
+
+$("#button9").click(function(ev){
+alert("button9 clicked");
+$("#button10").trigger("click");
+$(this).off('click');
+});
+
+$("#button10").click(function(ev){
+alert("button10 clicked");
+});
+
+});
+
+
+
+
+</script>
+<style>
+.xyz
+{
+font-size: 20pt;
+color: brown;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<button id="button1" type="button" onclick='doSomething()'>(1)Click Me</button>
+<button id="button2" type="button">(2)Click Me</button>
+<button id="button3" type="button">(3)Click Me</button>
+<button id="button4" type="button">(4)Click Me</button>
+<button id="button5" type="button">(5)Click Me</button>
+
+<div id='abcd' class="xyz">
+AAAAA BBBBB CCCCC DDDDD
+</div>
+
+<div id='mainContainer'>
+Some matter in main container
+<div id='childContainer'>
+Some matter in main container
+<span id='lmn'>
+<button id="button6" type="button">(6)Click Me</button>
+</span>
+</div>
+</div>
+
+<div id='mainContainer2'>
+Some matter in main container 2
+<div id='childContainer2'>
+Some matter in main container 2
+<span id='mmm'>
+<button id="button7" type="button">(7)Click Me</button>
+</span>
+</div>
+</div>
+<form action='whatever'>
+Enter something <input type='text' id='nm'><br>
+<button id='button8' type='submit'>Submit button</button>
+</form>
+
+<div id='d1'>
+Good<br>
+<div id='d2'>
+Great<br>
+<span id='s1'>Awesome</span>
+</div>
+</div>
+
+<button id="button9" type="button">(9)Click Me</button>
+<button id="button10" type="button">(10)Click Me</button>
+
+
+</body>
+</html>
+
+
+
+
+
+

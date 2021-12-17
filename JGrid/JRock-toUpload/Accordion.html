@@ -1,0 +1,111 @@
+<!doctype html>
+<hmtl lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Working with Accordion Pane</title>
+<script>
+var panels=[];
+var expandedIndex=-1;
+function accordionHeadingClicked(idx)
+{
+if(expandedIndex!=-1) panels[expandedIndex].style.display='none';
+panels[idx+1].style.display=panels[idx+1].oldDisplay;
+expandedIndex=idx+1;
+}
+
+function doit()
+{
+let accord=document.getElementById("toCreate");
+let children=accord.childNodes;
+let idx=0;
+for(idx=0;idx<children.length;idx++)
+{
+if(children[idx].nodeName=="H1")
+{
+panels[panels.length]=children[idx];
+}
+else if(children[idx].nodeName=="H2")
+{
+panels[panels.length]=children[idx];
+}
+else if(children[idx].nodeName=="H3")
+{
+panels[panels.length]=children[idx];
+}
+else if(children[idx].nodeName=="H4")
+{
+panels[panels.length]=children[idx];
+}
+else if(children[idx].nodeName=="H5")
+{
+panels[panels.length]=children[idx];
+}
+else if(children[idx].nodeName=="H6")
+{
+panels[panels.length]=children[idx];
+}
+if(children[idx].nodeName=="DIV")
+{
+panels[panels.length]=children[idx];
+}
+}
+if(panels.length%2!=0) throw "Headings and Divisons malformed to create Accordian.";
+for(idx=0;idx<panels.length;idx+=2)
+{
+if(panels[idx].nodeName!="H1" && panels[idx].nodeName!="H2" && panels[idx].nodeName!="H3" && panels[idx].nodeName!="H4" && panels[idx].nodeName!="H5" && panels[idx].nodeName!="H6") throw "Headings and Divisons malformed to create Accordian.";
+if(panels[idx+1].nodeName!="DIV") throw "Headings and Divisons malformed to create Accordian.";
+}
+function createClickHandler(i)
+{
+return function(){
+accordionHeadingClicked(i);
+};
+}
+for(idx=0;idx<panels.length;idx+=2)
+{
+panels[idx].onclick=createClickHandler(idx);
+panels[idx+1].oldDisplay=panels[idx+1].style.display;
+panels[idx+1].style.display="none";
+}
+} //DOIT ENDS
+
+window.addEventListener('load',doit);
+</script>
+</head>
+<body>
+<div id='toCreate'>
+<h1>HEADING 1</h1>
+<div>
+A A A A A A A A A A A
+A A A A A A A A A A A
+A A A A A A A A A A A
+A A A A A A A A A A A
+A A A A A A A A A A A
+A A A A A A A A A A A
+A A A A A A A A A A A
+</div>
+
+<h3>HEADING 2</h3>
+<div>
+E E E E E E E E E E E
+E E E E E E E E E E E
+E E E E E E E E E E E
+E E E E E E E E E E E
+E E E E E E E E E E E
+E E E E E E E E E E E
+E E E E E E E E E E E
+</div>
+
+<h1>HEADING 3</h1>
+<div>
+P P P P P P P P P P P
+P P P P P P P P P P P
+P P P P P P P P P P P
+P P P P P P P P P P P
+P P P P P P P P P P P
+P P P P P P P P P P P
+P P P P P P P P P P P
+</div>
+</div>
+</body>
+</html>

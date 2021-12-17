@@ -1,0 +1,74 @@
+<!doctype html>
+<hmtl lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Working with Modals</title>
+<script>
+.xyz
+{
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+border: 1px solid red;
+background: gray;
+position: fixed;
+opacity: 70%
+}
+.pqr
+{
+width: 400px;
+min-width: 400px;
+height: 300px;
+min-height: 300px;
+background-color: blue;
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+margin: auto;
+border: 2px solid white;
+overflow: auto;
+}
+.lmn
+{
+float: right;
+}
+
+
+
+
+
+
+function doSomething()
+{
+let a=document.getElementById("positionA")
+let b=document.getElementById("tb");
+b.remove();
+a.appendChild(b);
+}
+function putItBack()
+{
+let a=document.getElementById("tbdv");
+let b=document.getElementById("tb");
+b.remove();
+a.appendChild(b);
+}
+</script>
+</head>
+<body>
+<button type='button' onclick='doSomething()'>Change Position</button>
+<button type='button' onclick='putItBack()'>Put it Back</button>
+<div>
+<h1></h1>
+<span id='postionA'></span>
+<br><br>
+Some text<br>
+More text<br><br>
+<div id='tbdv'>
+<table id='tb' border='1'><tr><td>Hello1</td><td>Hello2</td></tr></table>
+</div>
+</div>
+</body>
+</html>

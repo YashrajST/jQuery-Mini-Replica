@@ -1,0 +1,140 @@
+eg1 =>We can pass the address of any func to another func "$". 
+The func whose add we've passed,will get executed once the document gets loaded
+
+Anonymous function:
+$(()=>{});
+---------------------------------------------------------------------------------------------------------------
+
+To refer something through id, use "#" before id
+As in eg below, we've used # before abc
+eg2 =>function doSomething()
+{
+$(".cool").css("font-size","24pt");  //address of an obj gets returned,css method gets invoked for that object
+$("span").css("border","1px solid red");
+$("#abc").css("background","yellow");
+}
+$(doSomething);
+
+The above can be implemented through an anonymous func.
+$(()=>{
+$(".cool").css("font-size","24pt");  
+$("span").css("border","1px solid red");
+$("#abc").css("background","yellow");
+});
+---------------------------------------------------------------------------------------------------------------
+
+SELECTORS
+eg3 => A divison with subdivisons, and those subdivisons have more subdivisons
+"cool" should be applied on the subdivison with id someSection
+cool will get applied only on to the *immediate* subdivisons of someSection.
+Jo un subdivisons k subdivisons h, they wont be considered as subdivison of someSection
+
+
+$("#someSection div:not('.cool')").addClass("hot");  ->Jin divisons pr "cool" apply nh hua, un pr hot apply krdo
+
+$("input[tmtm]").css("color","blue");
+The given css will get applied on Those tags ("input" in the above case), which have the specified attribute("tmtm" in above ex)
+
+$("input[tmtm=ok]").css("color","blue");
+The given css will get applied on Those tags ("input" in the above case), which have the specified attribute("tmtm" in above ex) and value of that attrib is as mentioned ("ok" in above ex)
+
+^ : Caret, "begins with"
+$  : dollar sign, "ends with"
+
+$("input[tmtm]").css("color","blue");
+  ->input tags with tmtm attribute
+$("input[tmtm=ok]").css("font-size","20pt");
+  ->input tags with value of tmtm attribute "ok"
+$("input[tmtm=good]").css("font-size","40pt");
+  ->input tags with value of tmtm attribute "good"
+$("input[tmtm^=good]").css("font-size","50pt");
+  ->input tags with value of tmtm attribute starting with "good"
+$("input[tmtm$=dog]").css("font-size","5pt");
+  ->input tags with value of tmtm attribute ending with "dog"
+
+$("li:eq(1)").css("color","yellow");
+  ->css will get applied on the element at index 1 of the unordered list
+ **0 based indexing
+
+$("li:nth-child(1)").css("color","yellow");
+  ->css will get applied on the 1st element of the unordered list
+ **1 based indexing
+
+$("li:even").css("color","yellow");
+  ->css will get applied on the element at even indices of the unordered list
+
+$("li:odd").css("color","yellow");
+  ->css will get applied on the element at odd indices of the unordered list
+
+---------------------------------------------------------------------------------------------------------------
+SOME HELPFUL FUNCTIONS
+eg4=>
+
+$("table").addClass("tbl"); 
+$("table th").addClass("tbl"); 
+$("table td").addClass("tbl"); 
+$("table thead").css("background","gray"); 
+$("table thead").css("color","white"); 
+$("table thead").css("border","1px solid black"); 
+$("table th:nth-child(2)").css("border-right","1px solid white"); 
+$("table th:nth-child(1)").css("border-right","1px solid white"); 
+$("table tbody tr").filter(":even").css("background","lightgray");
+$("table tbody td:contains('Ujjain')").css("color","#00FFFF");
+$("table tbody td:contains('Amar')").next().css("color","yellow");
+$("table tbody td:contains('5.')").nextAll().css("color","pink");
+$("table tbody td:contains('3.')").addBack().css("color","magenta");
+$("table tbody td:contains('Pawan')").parent.css("font-weight","bold");
+
+$("table tbody td:contains('Mumbai')").children.css("font-size","44pt");
+  ->css gets applied to child nodes of td with the given value 
+  ->The cell which contains 'Mumbai' has a span, i.e. that span will be its child node
+ 
+---------------------------------------------------------------------------------------------------------------
+eg5=> EVENT HANDLING
+
+Suppose u create ur own function "$" or u make use of another library'ch has a function "$"
+Then jQuery creators have given the option of doing all the work using 
+
+function $(k)
+{
+alert('I am invoked! This is k: '+k);
+}
+function doSomething()
+{
+$("#button1").css("color","blue");
+}
+<button id="button1" onclick='doSomething()'>CLICK ME</button>
+
+When button1'll be clicked, doSomething will get invoked. 
+From doSomething,function $ has been called.
+Since, we have also defined a func with name $ it will get invoked. 
+Not the one, created by jQuery creators
+By writing $("#button1").css("color","blue"); we are asking to apply the given css
+on the object returned by the function $. Since the $ we have  defined doesnt return anything, 
+and that is the func which is actually getting invoked, the above line'll generate some error
+As nthg is being returned and what we are asking to do is do some work with the returned obj
+
+This is a case of conflict (existence of a func with name $) and to solve the aforementioned problem:
+place a call tp:
+jQuery.noConflict();
+We wrote  $(()={}); to invoke some func from jquery library, once DOM is loaded
+But now we cannot write '$' bcz of the conflict so we'll write
+jQuery(()={});
+But again, even at other places within the above mentioned line, we cannot write $ anywhere 
+we'll have to write jQuery instead
+Theres a simple solution to it:
+jQuery(($)={});
+Due to this,Refernce of the internal object, which was returned cz of writing "$(..)." or "jQuery(..)."
+will get stored into "$"
+
+$("#button1").click(..) ->by writing this we are not placing call to 'click'
+we are actually defining what should happen when the button is clicked
+
+
+take a scenario where a divison (outer container) has several child containers
+So if u click anywhere on the outer container only then the func should be invoked
+ev.target==this by writing 'this' we are strictly mentioning 'outer container'
+
+"ev" jise point kr rha h, uske liye preventDefault ko call kia
+ev.preventDefault() : Jis component se related event fire hua h, us component k case me event fire hone k baad ka,
+jo bi default behaviour h, usse rukwa dia h

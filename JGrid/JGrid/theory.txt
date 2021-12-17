@@ -1,0 +1,34 @@
+#grid4:
+If onclick funchas been written against "anchor tag", If that func,
+upon execution returns "false", whatever will be mentioned against href for
+this anchor tag,will be ignored
+javascript:void(0) ->Used to denote "undefined"
+We wont get the look n feel of a hyperlink without specifying "href" against anchor tag
+
+-----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+
+#grid5:
+In our initial desing we have 2 divisons. 
+One for table headings (header div) and the other for table content (body div)
+The foremost condition is, the width of both these divisons must be approx the same. Duh!
+We need to implement Horizontal scroll bar
+  ->We'll set the width of body n header divison to approx equal values
+    =>The width of header div should be slightly lesser than body div, else when the body div will be scrolled to end
+      a slight mismatch'll occur in corresponding cells of heading n body 
+  ->What we want is,user jitna body div pr user scroll kre,header div bi utna hi scroll hojae
+    i.e. Manual scrolling on body div n programatically equal scrolling must happen on header div
+  ->To achieve this,we can assign the value of scrollLeft property of body div to scrollLeft prop of header div
+  ->To implement the above,we'll set scrollEvent for body div.
+**NOTE that if u donot specify approx equal width for both the divs,this will fail
+
+The querySelector() method returns the first element that matches a specified CSS selector(s) in the document.
+Note: The querySelector() method only returns the first element that matches the specified selectors. 
+To return all the matches, use the querySelectorAll() method instead.
+  ___________________________________________________________
+
+Decorate the anchor tag
+If we simply write a {....} then this styling'll be applied to every single anchor tag present in DOM
+But we want this to get applied only on those anchor tags which are a part of pagination number divison
+
+-----------------------------------------------------------------------------------------------------------

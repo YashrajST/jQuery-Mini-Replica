@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>jQuery Examples</title>
+<script src='jquery/jquery.js'></script>
+<style>
+.cool
+{
+color:pink;
+}
+</style>
+<script>
+function doSomething()
+{
+$(".cool").css("font-size","24pt");  //address of an obj gets returned,css method gets invoked for that object
+$("span").css("border","1px solid red");
+$("#abc").css("background","yellow");
+}
+$(doSomething);
+</script>
+</head>
+<body>
+<span class='cool'>One</span><br>
+<span>Two</span><br>
+<span id='abc'>Three</span><br>
+<span class='cool'>Four</span><br>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+1) Address of all the functions'ch we want should be invoked once the doc gets loaded will be stored in "onStartup"
+
+2) A single page can have multiple accordions. Address of all the Accordions'ch are wanted will be stored in a ds called "accordions".
+   ->"panels" will now be present at an index within "accordions"
+
+3) We'll wrap the above 2 ds (onStartup and accordions) in "model"
+
+4) user'll simply pass address of anonymous func
+$$$.onDocumentLoaded(function(){
+$$$.toAccordion(id);
+});
+The above is part of script and this particular func will be invoked when the document is being loaded
+
+5) window.addEventListener('load',function(){
+   $$$.initFramework();
+   });
+   ->Once the document has been fully loaded, function initFramework should be invoked
+   ->Within initFramework, what'll happen is, onStartup array against model in'ch each element is the address of a func,those funcs will be invoked
+   ->And in those func, toAccordion has been called

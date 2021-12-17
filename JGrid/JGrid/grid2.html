@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>JRock Grid Prototyping</title>
+<!--JRock specific styling -->
+<style>
+
+.jrock_jgrid_header_divison
+{
+overflow-x: hidden;
+overflow-y: hidden;
+}
+
+.jrock_jgrid_body_divison
+{
+overflow-x: auto;
+overflow-y: auto;
+width: 320px;
+height: 400px;
+}
+
+.jrock_jgrid_head
+{
+border: 1px groove green;
+border-bottom: 0px;
+border-spacing: 0px;
+border-collapse: collapse;
+background: lightgray;
+}
+
+.jrock_jgrid_head td
+{
+border-left: 1px groove red;
+border-right: 1px groove red;
+border-top: 1px groove red;
+border-bottom: 0px;
+width: 50 px;
+text-align: right;
+}
+
+.jrock_jgrid_head td+td
+{
+width: 100 px;
+text-align: left;
+}
+
+.jrock_jgrid_head td+td+td
+{
+width: 150 px;
+text-align: left;
+}
+
+.jrock_jgrid_body
+{
+border: 1px groove green;
+border-spacing: 0px;
+border-collapse: collapse;
+}
+
+.jrock_jgrid_body td
+{
+border: 1px groove red;
+width: 150 px;
+text-align: left;
+}
+
+.jrock_jgrid_body td+td
+{
+width: 150 px;
+text-align: left;
+}
+
+.jrock_jgrid_body td+td+td
+{
+border: 1px groove red;
+width: 150 px;
+text-align: left;
+}
+
+
+</style>
+
+<!--User specific styling -->
+<style>
+
+.someStyle
+{
+width: 900px;
+height: 600px;
+border: 1px solid red;
+overflow: auto;
+}
+
+</style>
+</thead>
+<body>
+<div class='someStyle'>
+<div class='jrock_jgrid_header_divison'>
+<table class='jrock_jgrid_head'>
+<tr>
+<td>S.No.</td>
+<td>Name</td>
+<td>City</td>
+</tr>
+</table>
+</div>
+<div class='jrock_jgrid_body_divison'>
+<table class='jrock_jgrid_body'>
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+
+<tr>
+<td>1.</td>
+<td>Eshita</td>
+<td>Bhargava</td>
+</tr>
+</table>
+</div>
+
+</div>
+</body>
+</html>
